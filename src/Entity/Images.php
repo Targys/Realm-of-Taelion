@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use App\Repository\ImagesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ImagesRepository::class)
+ * @Vich\Uploadable
  */
 class Images
 {
@@ -30,7 +32,23 @@ class Images
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $link;
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="gallerie", fileNameProperty="image")
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    public function __construct()
+    {
+        $this->updatedAt = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -61,15 +79,41 @@ class Images
         return $this;
     }
 
-    public function getLink(): ?string
+    /**
+     * @return mixed
+     */
+    public function getImage(): ?string
     {
-        return $this->link;
+        return $this->image;
     }
 
-    public function setLink(string $link): self
+    /**
+     * @param mixed $image
+     */
+    public function setImage(?string $image): self
     {
-        $this->link = $link;
+        $this->image = $image;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param mixed $imageFile
+     */
+    public function setImageFile($imageFile): void
+    {
+        $this->imageFile = $imageFile;
+
+        if ($imageFile) {
+            $this->updatedAt = new \DateTime();
+        }
     }
 }

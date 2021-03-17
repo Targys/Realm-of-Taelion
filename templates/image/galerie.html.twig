@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie d'images{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Galerie d'images</h1>
+
+{% for image in image %}
+<a href="#" class="ea-lightbox-thumbnail" data-featherlight="/images/gallerie/{{ image.image }}" data-featherlight-close-on-click="anywhere">
+    <img src="/images/gallerie/{{ image.image }}" alt="{{ image.description }}" title="{{ image.title }}" class="">
+</a>
+
+{% endfor %}
+</div>
+{% endblock %}
