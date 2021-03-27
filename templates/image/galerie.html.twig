@@ -4,14 +4,18 @@
 
 {% block body %}
 
-<div class="example-wrapper">
+<div class="galerie_container">
     <h1>Galerie d'images</h1>
 
-{% for image in image %}
-<a href="#" class="ea-lightbox-thumbnail" data-featherlight="/images/gallerie/{{ image.image }}" data-featherlight-close-on-click="anywhere">
-    <img src="/images/gallerie/{{ image.image }}" alt="{{ image.description }}" title="{{ image.title }}" class="">
-</a>
+    <div class="galerie">
+		{% for image in image %}
+			<div class="image">
+				<a href="#" class="ea-lightbox-thumbnail" data-featherlight="/images/gallerie/{{ image.image }}" data-featherlight-close-on-click="anywhere">
+	    			<img src="/images/gallerie/{{ image.image }}" alt="{{ image.description }}" title="{{ image.title }}" class="screenshot">
+				</a>
+			</div>
 
-{% endfor %}
+		{% endfor %}
+	</div>
 </div>
 {% endblock %}
