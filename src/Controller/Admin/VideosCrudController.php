@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Videos;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
 
 class VideosCrudController extends AbstractCrudController
 {
@@ -12,14 +14,11 @@ class VideosCrudController extends AbstractCrudController
         return Videos::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
             TextField::new('title'),
-            TextEditorField::new('description'),
+            UrlField::new('url'),
         ];
     }
-    */
 }
