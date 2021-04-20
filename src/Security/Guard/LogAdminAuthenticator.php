@@ -71,7 +71,7 @@ class LogAdminAuthenticator extends AbstractFormLoginAuthenticator implements Pa
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException("L'utilisateur ne peut aps être trouvé");
+            throw new CustomUserMessageAuthenticationException("L'utilisateur ne peut pas être trouvé");
         }
 
         return $user;
@@ -95,6 +95,7 @@ class LogAdminAuthenticator extends AbstractFormLoginAuthenticator implements Pa
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($targetPath);
         }
+        return new RedirectResponse($this->urlGenerator->generate('admin'));
 
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
         throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
