@@ -14,20 +14,34 @@ nav {
 	grid-column-end: span 12;
 	background-color: gray;
 	height: 2.2em;
+	@media screen and (max-width: 600px) {
+			height: auto;
+		}
 
 	.navbar {
 		display: flex;
-		justify-content: space-around;
-		width: 50%;
+		justify-content: center;
+		width: 100%;
 		margin-top: 0.2em;
+		@media screen and (max-width: 600px) {
+			flex-direction: column;
+			align-items: center;
+		}
 
 		a {
 			text-decoration: none;
 			color: black;
 			border: 0.1em solid black;
 			padding: 0.1em;
+			margin-right: 1em;
 			font-size: 1.1em;
 			background-color: lightgray;
+			@media screen and (max-width: 600px) {
+				margin-right: 0;
+				margin-bottom: 1em;
+				width: 50%;
+				text-align: center;
+			}
 
 			&:hover {
 				color: blue;
@@ -69,11 +83,15 @@ nav {
 	grid-column-end: 10;
 
 	.video {
+		overflow: hidden;
 		position: relative;
 		padding-bottom: 40%;
 		margin-bottom: 10%;
+		height: 0;
 
 		iframe {
+			left: 0;
+			top: 0;
 			height: 100%;
 			width: 100%;
 			position: absolute;
@@ -122,3 +140,4 @@ footer {
 		}
 	}
 }
+
