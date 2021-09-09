@@ -1,18 +1,22 @@
 body {
-    background-color: lightgray;
+	height: 100vh;		
+    background-color: #68869a;
     margin: 0;
     padding: 0;
+	
 }
 
 .container {
 	display: grid;
 	grid: auto-flow / repeat(12, 1fr);
+	position: relative;
+	min-height: 100vh;
 }
 
 nav {
-	grid-column-start: 1;
-	grid-column-end: span 12;
-	background-color: gray;
+	width: 100%;
+	background-color: #1d4d5e;
+	position: fixed;
 	height: 2.2em;
 	@media screen and (max-width: 600px) {
 			height: auto;
@@ -30,12 +34,10 @@ nav {
 
 		a {
 			text-decoration: none;
-			color: black;
-			border: 0.1em solid black;
+			color: white;
 			padding: 0.1em;
-			margin-right: 1em;
-			font-size: 1.1em;
-			background-color: lightgray;
+			margin-right: 1.5rem;
+			font-size: 1.2rem;
 			@media screen and (max-width: 600px) {
 				margin-right: 0;
 				margin-bottom: 1em;
@@ -44,8 +46,34 @@ nav {
 			}
 
 			&:hover {
-				color: blue;
+				background-color: rgba(177, 188, 197, 0.45);
 			}
+		}
+	}
+}
+
+.trailer {
+	grid-column-start: 1;
+	grid-column-end: 13;
+	background-color: black;
+	height: 30rem;
+}
+
+.text-accueil {
+	grid-column-start: 1;
+	grid-column-end: 13;
+	background-color: #1d4d5e;
+	color: white;
+
+	h1, h2 {
+		text-align: center;
+	}
+
+	p {
+		margin-left: 10rem;
+		font-size: 1.1rem;
+		@media screen and (max-width: 600px) {
+			margin-left: 2rem;
 		}
 	}
 }
@@ -53,21 +81,22 @@ nav {
 .text {
 	grid-column-start: 4;
 	grid-column-end: 10;
+	margin-top: 2rem;
 }
 
 .galerie_container {
 	grid-column-start: 2;
 	grid-column-end: 12;
+	margin-top: 2rem;
 
 	.galerie {
 		display: flex;
 		flex-flow: row wrap;
 		flex: auto;
 		justify-content: space-around;
-		border: solid black;
 		.image {
-			height: 20rem;
-			width: 20rem;
+			height: 18rem;
+			width: 22rem;
 
 			.screenshot {
 			object-fit: contain;
@@ -81,12 +110,18 @@ nav {
 .video_container {
 	grid-column-start: 4;
 	grid-column-end: 10;
+	margin-top: 4rem;
+
+	hr {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
 
 	.video {
 		overflow: hidden;
 		position: relative;
 		padding-bottom: 40%;
-		margin-bottom: 10%;
+		margin-bottom: 1rem;
 		height: 0;
 
 		iframe {
@@ -118,11 +153,16 @@ nav {
 }
 
 footer {
+	grid-column-start: 1;
+	grid-column-end: span 12;
+	position: absolute;
 	width: 100%;
-	background-color: gray;
-	height: 2em;
-	position: fixed;
-	bottom: 0px;
+	background-color: #1d4d5e;
+	height: 3em;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-bottom: 0;
 
 	.footer {
 		display: flex;
@@ -130,12 +170,19 @@ footer {
 		width: 50%;
 		align-content: center;
 		margin-left: 1em;
+		padding-top: 1em;
+		color: white;
 
 		a {
-			color: black;
+			text-decoration: none;
+			color: white;
+			padding: 0.1em;
+			margin-right: 1em;
+			margin-top: 1rem;
+			font-size: 1.1em;
 
 			&:hover {
-				color: blue;
+				background-color: rgba(177, 188, 197, 0.45);
 			}
 		}
 	}
